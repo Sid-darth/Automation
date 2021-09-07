@@ -1,4 +1,4 @@
-# referenced from https://www.udemy.com/course/100-days-of-code/
+
 from icecream import ic
 from bs4 import BeautifulSoup
 import requests
