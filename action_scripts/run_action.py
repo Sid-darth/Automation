@@ -9,7 +9,7 @@ def update_readme():
     last_commit = subprocess.check_output(["git", "rev-parse", "HEAD"]).decode("utf-8").strip()
 
     
-    with open("README.md", "r+") as f:
+    with open("../README.md", "r+") as f:
         content = f.read()
         pattern = r"Last pushed: (.*)"
         match = re.search(pattern, content)
