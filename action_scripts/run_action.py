@@ -4,9 +4,11 @@ import subprocess
 import re
 
 def update_readme():
+    """update readme with date pushed and active commit #"""
     current_date_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     last_commit = subprocess.check_output(["git", "rev-parse", "HEAD"]).decode("utf-8").strip()
 
+    
     with open("README.md", "r+") as f:
         content = f.read()
         pattern = r"Last pushed: (.*)"
@@ -20,9 +22,9 @@ def update_readme():
         f.write(content)
         f.truncate()
 
-    # subprocess.run(["git", "add", "README.md"])
-    # subprocess.run(["git", "commit", "-m", "Update README.md with last push time and commit number"])
-    # subprocess.run(["git", "push", "origin", "main"])
+    subprocess.run(["git", "add", "README.md"])
+    subprocess.run(["git", "commit", "-m", "Update README.md with last push time and commit number"])
+    subprocess.run(["git", "push", "origin", "main"])
 
 if __name__ == "__main__":
     update_readme()
